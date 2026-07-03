@@ -32,6 +32,7 @@ The Vendor Reliability Intelligence Platform is a full-stack web application des
 - Vendor Performance
 - Vendor Reliability
 - Contract & Compliance
+- communication module
 - Dashboard & Analytics
 - Notifications
 - Reports
