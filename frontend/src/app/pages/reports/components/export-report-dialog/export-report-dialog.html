@@ -1,0 +1,107 @@
+<h2 mat-dialog-title>
+  Export Report
+</h2>
+
+<mat-dialog-content>
+
+  <form [formGroup]="exportForm">
+
+    <!-- Report Type -->
+
+    <mat-form-field
+      appearance="outline"
+      class="full-width">
+
+      <mat-label>
+        Report Type
+      </mat-label>
+
+      <mat-select formControlName="reportType">
+
+        <mat-option value="Vendor Performance">
+          Vendor Performance
+        </mat-option>
+
+        <mat-option value="Procurement Summary">
+          Procurement Summary
+        </mat-option>
+
+        <mat-option value="Purchase Order Summary">
+          Purchase Order Summary
+        </mat-option>
+
+        <mat-option value="Contract Status">
+          Contract Status
+        </mat-option>
+
+        <mat-option value="Vendor Risk Analysis">
+          Vendor Risk Analysis
+        </mat-option>
+
+        <mat-option value="Spend Analysis">
+          Spend Analysis
+        </mat-option>
+
+      </mat-select>
+
+    </mat-form-field>
+
+
+    <!-- Format -->
+
+    <mat-form-field
+      appearance="outline"
+      class="full-width">
+
+      <mat-label>
+        Format
+      </mat-label>
+
+      <mat-select formControlName="format">
+
+        <mat-option value="PDF">
+          PDF
+        </mat-option>
+
+        <mat-option value="CSV">
+          CSV
+        </mat-option>
+
+        <mat-option value="JSON">
+          JSON
+        </mat-option>
+
+      </mat-select>
+
+    </mat-form-field>
+
+  </form>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+
+  <button
+    mat-button
+    (click)="cancel()">
+
+    Cancel
+
+  </button>
+
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="exportForm.invalid"
+    (click)="exportReport()">
+
+    <mat-icon>
+      download
+    </mat-icon>
+
+    Export Report
+
+  </button>
+
+</mat-dialog-actions>

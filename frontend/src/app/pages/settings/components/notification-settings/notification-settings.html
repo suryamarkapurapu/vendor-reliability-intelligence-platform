@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Notification Settings
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content style="padding-top: 16px;">
+        @if (message) {
+            <div style="color: #2e7d32; background: #edf7ed; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
+                {{ message }}
+            </div>
+        }
+
+        @if (error) {
+            <div style="color: #d32f2f; background: #fdeded; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
+                {{ error }}
+            </div>
+        }
+
+        <form [formGroup]="notificationForm" (ngSubmit)="saveSettings()">
+            <mat-slide-toggle formControlName="email">
+                Email Notifications
+            </mat-slide-toggle>
+
+            <br><br>
+
+            <mat-slide-toggle formControlName="vendorAlerts">
+                Vendor Alerts
+            </mat-slide-toggle>
+
+            <br><br>
+
+            <mat-slide-toggle formControlName="contractAlerts">
+                Contract Expiry Alerts
+            </mat-slide-toggle>
+
+            <br><br>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="saving || loading">
+                {{ saving ? 'Saving...' : 'Save Notification Preferences' }}
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

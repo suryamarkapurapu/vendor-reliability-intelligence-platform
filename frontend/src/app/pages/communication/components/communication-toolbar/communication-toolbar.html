@@ -1,0 +1,30 @@
+<div class="toolbar">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input
+            matInput
+            placeholder="Search messages"
+            [(ngModel)]="searchText">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="status">
+            <mat-option value="">All</mat-option>
+            <mat-option value="read">Read</mat-option>
+            <mat-option value="unread">Unread</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Vendor</mat-label>
+        <mat-select [(ngModel)]="vendor">
+            <mat-option value="">All Vendors</mat-option>
+            @for (v of vendors; track v.vendor_id) {
+                <mat-option [value]="v.company_name">{{ v.company_name }}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+
+</div>

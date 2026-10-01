@@ -1,0 +1,50 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            <mat-icon>business</mat-icon>
+            Company Information
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content style="padding-top: 16px;">
+        @if (message) {
+            <div style="color: #2e7d32; background: #edf7ed; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
+                {{ message }}
+            </div>
+        }
+
+        @if (error) {
+            <div style="color: #d32f2f; background: #fdeded; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
+                {{ error }}
+            </div>
+        }
+
+        <form [formGroup]="companyForm" (ngSubmit)="saveSettings()">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Company Name</mat-label>
+                <input matInput formControlName="companyName">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Phone Number</mat-label>
+                <input matInput formControlName="phone">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Address</mat-label>
+                <textarea matInput rows="3" formControlName="address"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="saving || loading" style="margin-top: 8px;">
+                {{ saving ? 'Saving...' : 'Save Company Settings' }}
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

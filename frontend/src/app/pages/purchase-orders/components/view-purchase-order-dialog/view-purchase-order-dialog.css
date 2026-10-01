@@ -1,0 +1,29 @@
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details-table tr {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.details-table td {
+    padding: 14px 10px;
+    font-size: 15px;
+}
+
+.label {
+    width: 180px;
+    font-weight: 600;
+    color: #555;
+}
+
+mat-dialog-content {
+    min-width: 500px;
+    overflow: hidden;
+}
+
+mat-dialog-actions {
+    margin-top: 15px;
+}

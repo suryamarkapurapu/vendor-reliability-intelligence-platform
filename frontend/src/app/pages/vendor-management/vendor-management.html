@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="content">
+
+        <app-vendor-header (vendorCreated)="onVendorCreated()"></app-vendor-header>
+
+        <div class="summary-grid">
+
+            <app-vendor-summary-card
+                title="Total Vendors"
+                [value]="totalVendors"
+                icon="groups">
+            </app-vendor-summary-card>
+
+            <app-vendor-summary-card
+                title="Active Vendors"
+                [value]="activeVendors"
+                icon="radio_button_checked">
+            </app-vendor-summary-card>
+
+            <app-vendor-summary-card
+                title="Pending Approval"
+                [value]="pendingApproval"
+                icon="hourglass_top">
+            </app-vendor-summary-card>
+
+            <app-vendor-summary-card
+                title="Inactive Vendors"
+                [value]="inactiveVendors"
+                icon="pause_circle">
+            </app-vendor-summary-card>
+
+        </div>
+
+        <app-vendor-toolbar
+            (searchChange)="onSearchChange($event)"
+            (categoryChange)="onCategoryChange($event)"
+            (statusChange)="onStatusChange($event)">
+        </app-vendor-toolbar>
+
+        <app-vendor-table
+            [searchQuery]="searchQuery"
+            [categoryFilter]="categoryFilter"
+            [statusFilter]="statusFilter"
+            (vendorDataChanged)="onVendorDataChanged()">
+        </app-vendor-table>
+
+    </div>
+
+</div>

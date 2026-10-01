@@ -1,0 +1,156 @@
+.container {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+  min-width: 0;
+}
+
+.issues-page {
+  padding: 0;
+}
+
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color:blue;
+}
+
+
+
+.page-header p {
+  margin: 6px 0 0;
+  color: #666;
+}
+
+.create-card,
+.filter-card,
+.table-card {
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.description-field {
+  grid-column: 1 / -1;
+}
+
+.filter-grid {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.messages {
+  margin: 10px 0 16px;
+}
+
+.success-message {
+  padding: 10px;
+  border-radius: 4px;
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.error-message {
+  padding: 10px;
+  border-radius: 4px;
+  background: #ffebee;
+  color: #c62828;
+}
+
+.table-container {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+.issues-table {
+  width: 100%;
+}
+
+.count {
+  margin-left: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+.status.open {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.status.progress {
+  background: #fff8e1;
+  color: #f57f17;
+}
+
+.status.resolved {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status.closed {
+  background: #eeeeee;
+  color: #555;
+}
+
+.loading,
+.empty {
+  padding: 40px;
+  text-align: center;
+  color: #777;
+}
+
+.empty mat-icon {
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width: 768px) {
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .description-field {
+    grid-column: auto;
+  }
+
+  .filter-grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+}

@@ -1,0 +1,52 @@
+<div class="toolbar">
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Search Procurement</mat-label>
+
+        <input
+            matInput
+            placeholder="Search by Item or Vendor"
+            [(ngModel)]="searchText">
+
+        <mat-icon matSuffix>search</mat-icon>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Status</mat-label>
+
+        <mat-select [(ngModel)]="selectedStatus">
+
+            <mat-option value="">All</mat-option>
+
+            <mat-option value="Approved">Approved</mat-option>
+
+            <mat-option value="Pending">Pending</mat-option>
+
+            <mat-option value="Rejected">Rejected</mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Priority</mat-label>
+
+        <mat-select [(ngModel)]="selectedPriority">
+
+            <mat-option value="">All</mat-option>
+
+            <mat-option value="High">High</mat-option>
+
+            <mat-option value="Medium">Medium</mat-option>
+
+            <mat-option value="Low">Low</mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+
+</div>

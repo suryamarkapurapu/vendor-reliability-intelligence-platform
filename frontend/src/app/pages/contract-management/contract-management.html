@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="content">
+
+        <app-contract-header (contractCreated)="onContractCreated()"></app-contract-header>
+
+        <div class="summary-grid">
+
+            <app-contract-summary-card
+                title="Total Contracts"
+                [value]="totalContracts"
+                icon="description">
+            </app-contract-summary-card>
+
+            <app-contract-summary-card
+                title="Active"
+                [value]="activeContracts"
+                icon="radio_button_checked">
+            </app-contract-summary-card>
+
+            <app-contract-summary-card
+                title="Expiring Soon"
+                [value]="expiringContracts"
+                icon="warning_amber">
+            </app-contract-summary-card>
+
+            <app-contract-summary-card
+                title="Expired"
+                [value]="expiredContracts"
+                icon="event_busy">
+            </app-contract-summary-card>
+
+        </div>
+
+        <app-contract-toolbar></app-contract-toolbar>
+
+        <app-contract-table (contractDataChanged)="onContractDataChanged()"></app-contract-table>
+    </div>
+
+</div>

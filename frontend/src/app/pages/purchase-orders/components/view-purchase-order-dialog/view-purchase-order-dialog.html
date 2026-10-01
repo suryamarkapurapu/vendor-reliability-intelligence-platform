@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>
+    Purchase Order Details
+</h2>
+
+<mat-dialog-content>
+
+    <table class="details-table">
+
+        <tr>
+            <td class="label">PO Number</td>
+            <td>{{data.poNumber}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Supplier</td>
+            <td>{{data.supplier}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Item</td>
+            <td>{{data.item}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Quantity</td>
+            <td>{{data.quantity}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Total Amount</td>
+            <td>₹ {{data.totalAmount | number}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Order Date</td>
+            <td>{{data.orderDate}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Delivery Date</td>
+            <td>{{data.deliveryDate}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Status</td>
+            <td>{{data.status}}</td>
+        </tr>
+
+    </table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    <button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close>
+
+        Close
+
+    </button>
+
+</mat-dialog-actions>

@@ -1,0 +1,49 @@
+mat-card{
+
+    border-radius:12px;
+
+}
+
+.card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+h3{
+
+    margin:0;
+
+    font-size:28px;
+
+}
+
+p{
+
+    color:#666;
+
+    margin-top:6px;
+
+}
+
+mat-icon{
+
+    font-size:40px;
+
+    width:40px;
+
+    height:40px;
+
+    color:#1976d2;
+
+}

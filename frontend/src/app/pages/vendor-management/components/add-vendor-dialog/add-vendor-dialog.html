@@ -1,0 +1,73 @@
+<h2 mat-dialog-title>Add Vendor</h2>
+
+<mat-dialog-content>
+<div class="form-container">
+<form [formGroup]="vendorForm">
+
+<mat-form-field appearance="outline">
+<mat-label>Vendor Name</mat-label>
+<input matInput formControlName="vendorName">
+@if (vendorForm.get('vendorName')?.hasError('required') &&
+     vendorForm.get('vendorName')?.touched) {
+<mat-error>Vendor Name is required</mat-error>
+}
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Category</mat-label>
+<mat-select formControlName="category">
+<mat-option [value]="1">Raw Material Suppliers</mat-option>
+<mat-option [value]="2">Equipment Vendors</mat-option>
+<mat-option [value]="3">IT Vendors</mat-option>
+<mat-option [value]="4">Service Providers</mat-option>
+<mat-option [value]="5">Logistics Partners</mat-option>
+<mat-option [value]="6">Maintenance Vendors</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Vendor Website / URL</mat-label>
+<input matInput formControlName="vendorType" placeholder="https://vendor.example.com">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Tax ID / Registration</mat-label>
+<input matInput formControlName="contact" placeholder="TAX-12345">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Email</mat-label>
+<input matInput formControlName="email">
+@if (vendorForm.get('email')?.hasError('required') &&
+     vendorForm.get('email')?.touched) {
+<mat-error>Email is required</mat-error>
+}
+@if (vendorForm.get('email')?.hasError('email')) {
+<mat-error>Invalid email address</mat-error>
+}
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Address</mat-label>
+<textarea matInput formControlName="address"></textarea>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Status</mat-label>
+<mat-select formControlName="status">
+<mat-option value="pending">Pending</mat-option>
+<mat-option value="approved">Approved</mat-option>
+<mat-option value="suspended">Suspended</mat-option>
+<mat-option value="rejected">Rejected</mat-option>
+<mat-option value="blacklisted">Blacklisted</mat-option>
+</mat-select>
+</mat-form-field>
+
+</form>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+<button mat-button mat-dialog-close>Cancel</button>
+<button mat-raised-button color="primary" (click)="saveVendor()">Save Vendor</button>
+</mat-dialog-actions>

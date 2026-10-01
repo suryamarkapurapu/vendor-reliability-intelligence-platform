@@ -1,0 +1,104 @@
+<div class="login-container">
+
+  <mat-card class="login-card">
+
+    <div class="logo-section">
+
+      <img src="images/shield_mark_icon_only.png" alt="Logo">
+
+      <h2>Vendor Reliability Intelligence Platform</h2>
+
+      <p>Sign in to continue</p>
+
+    </div>
+
+    <form [formGroup]="loginForm">
+
+      <!-- Email / Username -->
+      <mat-form-field appearance="outline">
+
+        <mat-label>Email or Username</mat-label>
+
+        <input
+          matInput
+          type="text"
+          formControlName="email">
+
+        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+          Email or Username is required
+        </mat-error>
+
+      </mat-form-field>
+
+      <!-- Password -->
+      <mat-form-field appearance="outline">
+
+        <mat-label>Password</mat-label>
+
+        <input
+          matInput
+          [type]="hidePassword ? 'password' : 'text'"
+          formControlName="password">
+
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hidePassword = !hidePassword">
+
+          <mat-icon>
+            {{ hidePassword ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+
+        </button>
+
+    
+
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+          Password is required
+        </mat-error>
+
+      </mat-form-field>
+      @if (errorMessage) {
+
+  <p class="login-error">
+    {{ errorMessage }}
+  </p>
+
+}
+      <!-- Remember Me -->
+      <div class="options">
+
+        <mat-checkbox formControlName="rememberMe">
+          Remember Me
+        </mat-checkbox>
+
+        <a routerLink="/forgot-password">Forgot Password?</a>
+
+      </div>
+
+      <!-- Login Button -->
+      <button
+        mat-raised-button
+        color="primary"
+        class="login-btn"
+        [disabled]="loginForm.invalid || loading"
+        (click)="login()">
+
+        {{ loading ? 'Signing In...' : 'Login' }}
+
+      </button>
+
+            <div class="register-link">
+
+           <span>Don't have an account?</span>
+
+           <a routerLink="/register">Sign Up</a>
+
+           </div>
+
+    </form>
+
+  </mat-card>
+
+</div>

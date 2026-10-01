@@ -1,0 +1,31 @@
+mat-card {
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+
+mat-list {
+  padding: 0;
+}
+
+mat-list-item {
+  height: auto !important;
+  min-height: 60px;
+  padding: 8px 0;
+}
+
+mat-icon {
+  flex-shrink: 0;
+}
+
+.activity-text {
+  margin-left: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

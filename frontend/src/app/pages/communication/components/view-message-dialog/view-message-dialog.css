@@ -1,0 +1,45 @@
+.details-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.details-table td{
+
+    padding:14px;
+
+    border-bottom:1px solid #e0e0e0;
+
+    vertical-align:top;
+
+}
+
+.details-table td:first-child{
+
+    width:180px;
+
+    font-weight:600;
+
+    color:#555;
+
+}
+
+mat-icon{
+
+    vertical-align:middle;
+
+    margin-right:6px;
+
+    color:#1976d2;
+
+}
+
+mat-dialog-content{
+
+    min-width:600px;
+
+    max-height:500px;
+
+}

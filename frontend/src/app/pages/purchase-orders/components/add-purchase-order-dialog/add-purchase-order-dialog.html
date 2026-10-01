@@ -1,0 +1,80 @@
+<h2 mat-dialog-title>New Purchase Order</h2>
+
+<mat-dialog-content>
+<div class="form-container">
+<form [formGroup]="purchaseForm">
+
+<mat-form-field appearance="outline">
+<mat-label>PO Number</mat-label>
+<input matInput formControlName="poNumber">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Supplier (Vendor)</mat-label>
+@if (vendors.length === 0) {
+  <mat-select formControlName="supplier">
+    <mat-option disabled value="">No approved vendors available</mat-option>
+  </mat-select>
+} @else {
+  <mat-select formControlName="supplier">
+    @for (v of vendors; track v.vendor_id) {
+      <mat-option [value]="v.vendor_id">
+        {{ v.company_name }} ({{ v.vendor_code }}) - [{{ v.status | uppercase }}]
+      </mat-option>
+    }
+  </mat-select>
+}
+@if (purchaseForm.get('supplier')?.hasError('required') && purchaseForm.get('supplier')?.touched) {
+  <mat-error>Supplier is required</mat-error>
+}
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Item Name / Description</mat-label>
+<input matInput formControlName="item" placeholder="Industrial Equipment, Servers, etc.">
+@if (purchaseForm.get('item')?.hasError('required') && purchaseForm.get('item')?.touched) {
+  <mat-error>Item is required</mat-error>
+}
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Quantity</mat-label>
+<input type="number" matInput formControlName="quantity" min="1">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Unit Price ($)</mat-label>
+<input type="number" matInput formControlName="unitPrice" min="0">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Total Amount ($)</mat-label>
+<input type="number" matInput formControlName="totalAmount" readonly>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Order Date</mat-label>
+<input type="date" matInput formControlName="orderDate">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Expected Delivery Date</mat-label>
+<input type="date" matInput formControlName="deliveryDate">
+@if (purchaseForm.get('deliveryDate')?.hasError('required') && purchaseForm.get('deliveryDate')?.touched) {
+  <mat-error>Delivery Date is required</mat-error>
+}
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Remarks</mat-label>
+<textarea rows="2" matInput formControlName="remarks"></textarea>
+</mat-form-field>
+
+</form>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+<button mat-button (click)="cancel()">Cancel</button>
+<button mat-raised-button color="primary" (click)="save()" [disabled]="vendors.length === 0">Create Order</button>
+</mat-dialog-actions>

@@ -1,0 +1,179 @@
+<h2 mat-dialog-title>
+  Vendor Reliability Details
+</h2>
+
+<mat-dialog-content>
+
+  <div class="vendor-header">
+
+    <div>
+      <h2>{{ data.vendor }}</h2>
+
+      <p>
+        Vendor performance and reliability assessment
+      </p>
+    </div>
+
+    <div class="score-box">
+      <span>Reliability Score</span>
+
+      <strong>
+        {{ data.reliabilityScore }}/100
+      </strong>
+    </div>
+
+  </div>
+
+
+  <div class="summary">
+
+    <div class="summary-item">
+      <span>Rank</span>
+      <strong>#{{ data.rank }}</strong>
+    </div>
+
+    <div class="summary-item">
+      <span>Risk Level</span>
+
+      <strong
+        [class.low]="data.riskLevel === 'Low'"
+        [class.medium]="data.riskLevel === 'Medium'"
+        [class.high]="data.riskLevel === 'High'">
+
+        {{ data.riskLevel }}
+
+      </strong>
+    </div>
+
+    <div class="summary-item">
+      <span>Quality Rating</span>
+      <strong>{{ data.qualityRating }}/5</strong>
+    </div>
+
+  </div>
+
+
+  <h3 class="section-title">
+    Performance Factors
+  </h3>
+
+
+  <!-- Delivery -->
+
+  <div class="factor">
+
+    <div class="factor-header">
+      <span>On-Time Delivery</span>
+      <strong>{{ data.deliveryPerformance }}%</strong>
+    </div>
+
+    <mat-progress-bar
+      mode="determinate"
+      [value]="data.deliveryPerformance">
+    </mat-progress-bar>
+
+  </div>
+
+
+  <!-- Quality -->
+
+  <div class="factor">
+
+    <div class="factor-header">
+      <span>Quality Performance</span>
+
+      <strong>
+        {{ data.qualityRating }}/5
+      </strong>
+    </div>
+
+    <mat-progress-bar
+      mode="determinate"
+      [value]="data.qualityRating * 20">
+    </mat-progress-bar>
+
+  </div>
+
+
+  <!-- Communication -->
+
+  <div class="factor">
+
+    <div class="factor-header">
+      <span>Communication Efficiency</span>
+      <strong>{{ data.communication }}%</strong>
+    </div>
+
+    <mat-progress-bar
+      mode="determinate"
+      [value]="data.communication">
+    </mat-progress-bar>
+
+  </div>
+
+
+  <!-- Compliance -->
+
+  <div class="factor">
+
+    <div class="factor-header">
+      <span>Contract Compliance</span>
+      <strong>{{ data.compliance }}%</strong>
+    </div>
+
+    <mat-progress-bar
+      mode="determinate"
+      [value]="data.compliance">
+    </mat-progress-bar>
+
+  </div>
+
+
+  <!-- Issue Resolution -->
+
+  <div class="factor">
+
+    <div class="factor-header">
+      <span>Issue Resolution</span>
+      <strong>{{ data.issueResolution }}%</strong>
+    </div>
+
+    <mat-progress-bar
+      mode="determinate"
+      [value]="data.issueResolution">
+    </mat-progress-bar>
+
+  </div>
+
+
+  <div class="assessment">
+
+    <mat-icon>verified</mat-icon>
+
+    <div>
+      <strong>Overall Assessment</strong>
+
+      <p>
+        Vendor performance is evaluated using delivery,
+        quality, communication, compliance and issue
+        resolution metrics.
+      </p>
+    </div>
+
+  </div>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="close()">
+
+    Close
+
+  </button>
+
+</mat-dialog-actions>

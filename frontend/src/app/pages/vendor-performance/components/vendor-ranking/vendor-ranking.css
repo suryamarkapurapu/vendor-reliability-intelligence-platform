@@ -1,0 +1,103 @@
+.ranking-card {
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 25px;
+}
+
+
+.ranking-header {
+
+  margin-bottom: 18px;
+}
+
+
+.ranking-header h3 {
+
+  margin: 0;
+
+  color: #1976d2;
+
+  font-size: 19px;
+}
+
+
+.ranking-header p {
+
+  margin-top: 6px;
+
+  color: #666;
+
+  font-size: 14px;
+}
+
+
+.table-container {
+
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+.ranking-table {
+
+  width: 100%;
+}
+
+
+th {
+
+  font-weight: 600;
+
+  color: #444;
+}
+
+
+td,
+th {
+
+  padding: 14px 12px;
+}
+
+
+.score {
+
+  font-weight: 600;
+
+  color: #1976d2;
+}
+
+
+.low-risk {
+
+  background-color: #e8f5e9 !important;
+
+  color: #2e7d32 !important;
+}
+
+
+.medium-risk {
+
+  background-color: #fff8e1 !important;
+
+  color: #f57f17 !important;
+}
+
+
+.high-risk {
+
+  background-color: #ffebee !important;
+
+  color: #c62828 !important;
+}
+
+
+button mat-icon {
+
+  color: #1976d2;
+}

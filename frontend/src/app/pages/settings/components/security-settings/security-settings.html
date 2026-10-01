@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>
+            Security Settings
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content style="padding-top: 16px;">
+        @if (message) {
+            <div style="color: #2e7d32; background: #edf7ed; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
+                {{ message }}
+            </div>
+        }
+
+        @if (error) {
+            <div style="color: #d32f2f; background: #fdeded; padding: 10px 14px; border-radius: 4px; margin-bottom: 16px;">
+                {{ error }}
+            </div>
+        }
+
+        <form [formGroup]="securityForm" (ngSubmit)="saveSettings()">
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Current Password</mat-label>
+                <input matInput type="password" formControlName="currentPassword">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>New Password</mat-label>
+                <input matInput type="password" formControlName="newPassword">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" style="width: 100%;">
+                <mat-label>Confirm Password</mat-label>
+                <input matInput type="password" formControlName="confirmPassword">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="saving || loading">
+                {{ saving ? 'Saving...' : 'Update Security Settings' }}
+            </button>
+        </form>
+    </mat-card-content>
+</mat-card>

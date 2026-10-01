@@ -1,0 +1,12 @@
+.full-width {
+  width: 100%;
+}
+
+mat-dialog-content {
+  min-width: 400px;
+  padding-top: 10px;
+}
+
+mat-form-field {
+  margin-bottom: 12px;
+}

@@ -1,0 +1,29 @@
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.header h2{
+
+    margin:0;
+
+}
+
+.header p{
+
+    color:#666;
+
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}

@@ -1,0 +1,108 @@
+.delivery-card {
+  margin-top: 24px;
+  padding: 24px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0 0 6px;
+}
+
+.header p {
+  margin: 0;
+  color: #666;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.remarks-field {
+  grid-column: 1 / -1;
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.success-message {
+  margin-top: 10px;
+  padding: 10px;
+  color: green;
+}
+
+.error-message {
+  margin-top: 10px;
+  padding: 10px;
+  color: red;
+}
+
+.records-section {
+  margin-top: 32px;
+}
+
+.records-section h3 {
+  margin-bottom: 16px;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.delivery-table {
+  width: 100%;
+  min-width: 950px;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.not-dispatched {
+  background: #eeeeee;
+}
+
+.in-transit {
+  background: #e3f2fd;
+}
+
+.delivered {
+  background: #e8f5e9;
+}
+
+.delayed {
+  background: #ffebee;
+}
+
+.completed {
+  color: green;
+  font-weight: 600;
+}
+
+.delayed {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .remarks-field {
+    grid-column: auto;
+  }
+}

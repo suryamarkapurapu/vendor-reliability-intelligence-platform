@@ -1,0 +1,70 @@
+# =========================
+# Python
+# =========================
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# Virtual environments
+# =========================
+
+venv/
+.venv/
+env/
+
+# =========================
+# Environment variables / secrets
+# =========================
+
+.env
+.env.*
+!.env.example
+
+# =========================
+# Angular / Node
+# =========================
+
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+
+# =========================
+# IDE
+# =========================
+
+.vscode/
+.idea/
+
+# =========================
+# Operating system
+# =========================
+
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+
+*.log
+
+# =========================
+# Temporary files
+# =========================
+
+*.tmp
+*.temp
+
+# =========================
+# Project development artifacts
+# =========================
+
+scratch/
+verification_results.json
+
+# Database backups / generated data
+database/*.json

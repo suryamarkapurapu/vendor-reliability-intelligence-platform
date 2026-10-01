@@ -1,0 +1,21 @@
+.details-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.details-table td{
+
+    padding:12px;
+
+    border-bottom:1px solid #ddd;
+
+}
+
+.details-table td:first-child{
+
+    width:180px;
+
+}

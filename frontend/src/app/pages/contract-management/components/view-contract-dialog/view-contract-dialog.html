@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>
+    Contract Details
+</h2>
+
+<mat-dialog-content>
+
+    <table class="details-table">
+
+        <tr>
+            <td class="label">Contract ID</td>
+            <td>{{data.contractId}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Vendor</td>
+            <td>{{data.vendor}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Start Date</td>
+            <td>{{data.startDate}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">End Date</td>
+            <td>{{data.endDate}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Contract Value</td>
+            <td>₹ {{data.contractValue | number}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Status</td>
+            <td>{{data.status}}</td>
+        </tr>
+
+    </table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    <button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close>
+
+        Close
+
+    </button>
+
+</mat-dialog-actions>

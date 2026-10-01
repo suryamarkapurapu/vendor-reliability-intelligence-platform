@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="content">
+
+        <app-procurement-header (requestCreated)="onRequestCreated()"></app-procurement-header>
+
+        <div class="summary-grid">
+
+            <app-procurement-summary-card
+                title="Total Procurement"
+                [value]="totalRequests"
+                icon="inventory_2">
+            </app-procurement-summary-card>
+
+            <app-procurement-summary-card
+                title="Approved"
+                [value]="approvedRequests"
+                icon="verified">
+            </app-procurement-summary-card>
+
+            <app-procurement-summary-card
+                title="Pending"
+                [value]="pendingRequests"
+                icon="schedule">
+            </app-procurement-summary-card>
+
+            <app-procurement-summary-card
+                title="Spend"
+                [value]="totalSpend"
+                icon="payments">
+            </app-procurement-summary-card>
+
+        </div>
+
+        <app-procurement-toolbar></app-procurement-toolbar>
+
+        <app-procurement-table (procurementDataChanged)="onProcurementDataChanged()"></app-procurement-table>
+    </div>
+
+</div>

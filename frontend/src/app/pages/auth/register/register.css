@@ -1,0 +1,195 @@
+.register-container{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+.left-panel{
+
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#1E3A8A,#2563EB);
+    color:white;
+    padding:60px;
+    text-align:center;
+
+}
+
+.left-panel img{
+
+    width:170px;
+    margin-bottom:25px;
+
+}
+
+.left-panel h1{
+
+    font-size:42px;
+    font-weight:700;
+    line-height:1.2;
+    margin-bottom:15px;
+
+}
+
+.left-panel p{
+
+    font-size:18px;
+    opacity:.9;
+
+}
+
+.features{
+
+    margin-top:35px;
+    text-align:left;
+
+}
+
+.features p{
+
+    margin:12px 0;
+    font-size:16px;
+
+}
+
+.right-panel{
+
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#f4f6f9;
+
+}
+
+.register-card{
+
+    width:480px;
+    max-height:90vh;
+    overflow-y:auto;
+    padding:35px;
+    border-radius:16px;
+    box-shadow:0 15px 40px rgba(0,0,0,.12);
+
+}
+
+h2{
+
+    text-align:center;
+    font-size:32px;
+    margin-bottom:10px;
+
+}
+
+.subtitle{
+
+    text-align:center;
+    color:#666;
+    margin-bottom:25px;
+
+}
+
+mat-form-field{
+
+    width:100%;
+    margin-bottom:15px;
+
+}
+
+.terms{
+
+    margin:10px 0 20px;
+
+}
+
+.register-btn{
+
+    width:100%;
+    height:50px;
+    font-size:16px;
+    font-weight:600;
+
+}
+
+.login-link{
+
+    margin-top:20px;
+    text-align:center;
+
+}
+
+.login-link a{
+
+    margin-left:5px;
+    color:#2563EB;
+    text-decoration:none;
+    font-weight:600;
+
+}
+
+.login-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+@media(max-width:900px){
+
+    .register-container{
+
+        flex-direction:column;
+
+    }
+
+    .left-panel{
+
+        min-height:300px;
+        padding:40px;
+
+    }
+
+    .left-panel img{
+
+        width:120px;
+
+    }
+
+    .left-panel h1{
+
+        font-size:28px;
+
+    }
+
+    .register-card{
+
+        width:95%;
+        margin:30px auto;
+
+    }
+
+}
+
+.form-error,
+.form-success{
+
+    margin:0 0 16px;
+    font-size:14px;
+    line-height:1.4;
+
+}
+
+.form-error{
+
+    color:#b3261e;
+
+}
+
+.form-success{
+
+    color:#0f7b45;
+
+}

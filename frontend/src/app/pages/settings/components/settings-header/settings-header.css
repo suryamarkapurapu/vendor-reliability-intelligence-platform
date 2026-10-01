@@ -1,0 +1,23 @@
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+h2{
+
+    margin:0;
+
+}
+
+p{
+
+    color:#666;
+
+}

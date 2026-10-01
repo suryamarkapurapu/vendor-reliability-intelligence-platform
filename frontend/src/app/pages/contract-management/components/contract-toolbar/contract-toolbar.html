@@ -1,0 +1,33 @@
+<div class="toolbar">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Search Contract</mat-label>
+        <input
+            matInput
+            placeholder="Search Contract ID or Vendor"
+            [(ngModel)]="searchText">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="selectedStatus">
+            <mat-option value="">All</mat-option>
+            <mat-option value="active">Active</mat-option>
+            <mat-option value="draft">Draft</mat-option>
+            <mat-option value="expiring">Expiring</mat-option>
+            <mat-option value="expired">Expired</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Vendor</mat-label>
+        <mat-select [(ngModel)]="selectedVendor">
+            <mat-option value="">All Vendors</mat-option>
+            @for (v of vendors; track v.vendor_id) {
+                <mat-option [value]="v.company_name">{{ v.company_name }}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+
+</div>

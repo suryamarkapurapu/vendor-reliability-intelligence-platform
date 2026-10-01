@@ -1,0 +1,126 @@
+<h2 mat-dialog-title>
+
+    New Procurement Request
+
+</h2>
+<mat-dialog-content>
+<div class="form-container">
+
+<form [formGroup]="procurementForm">
+
+<mat-form-field appearance="outline">
+
+<mat-label>Request ID</mat-label>
+
+<input matInput formControlName="requestId">
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Item Name</mat-label>
+
+<input matInput formControlName="item">
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Vendor</mat-label>
+
+<input matInput formControlName="vendor">
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Quantity</mat-label>
+
+<input type="number" matInput formControlName="quantity">
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Budget</mat-label>
+
+<input type="number" matInput formControlName="budget">
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Required Date</mat-label>
+
+<input type="date" matInput formControlName="requiredDate">
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Priority</mat-label>
+
+<mat-select formControlName="priority">
+
+<mat-option value="High">High</mat-option>
+
+<mat-option value="Medium">Medium</mat-option>
+
+<mat-option value="Low">Low</mat-option>
+
+</mat-select>
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Status</mat-label>
+
+<mat-select formControlName="status">
+
+<mat-option value="Pending">Pending</mat-option>
+
+<mat-option value="Approved">Approved</mat-option>
+
+<mat-option value="Rejected">Rejected</mat-option>
+
+</mat-select>
+
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+
+<mat-label>Description</mat-label>
+
+<textarea
+matInput
+rows="3"
+formControlName="description">
+</textarea>
+
+</mat-form-field>
+
+</form>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+<button
+mat-button
+(click)="cancel()">
+
+Cancel
+
+</button>
+
+<button
+mat-raised-button
+color="primary"
+(click)="save()">
+
+Save
+
+</button>
+
+</mat-dialog-actions>

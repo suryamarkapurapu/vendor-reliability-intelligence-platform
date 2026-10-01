@@ -1,0 +1,30 @@
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h2{
+    margin:0;
+    color:#1976d2;
+}
+
+.header p{
+    margin-top:5px;
+    color:#666;
+}
+
+.add-btn{
+    background:#1976d2;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.add-btn:hover{
+    background:#1565c0;
+}

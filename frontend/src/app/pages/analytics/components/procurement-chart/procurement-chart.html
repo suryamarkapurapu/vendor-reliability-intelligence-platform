@@ -1,0 +1,27 @@
+<mat-card class="chart-card">
+
+    <mat-card-header>
+        <mat-card-title>
+            Monthly Procurement Trend
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        @if (hasData) {
+            <div class="chart-container">
+                <canvas
+                    baseChart
+                    [data]="lineChartData"
+                    [options]="lineChartOptions"
+                    type="line">
+                </canvas>
+            </div>
+        } @else {
+            <div class="empty-chart-state" style="padding: 48px 16px; text-align: center; color: #888;">
+                <mat-icon style="font-size: 40px; height: 40px; width: 40px; color: #bbb; margin-bottom: 8px;">trending_up</mat-icon>
+                <p style="margin: 0; font-size: 14px;">No procurement spend data available</p>
+            </div>
+        }
+    </mat-card-content>
+
+</mat-card>

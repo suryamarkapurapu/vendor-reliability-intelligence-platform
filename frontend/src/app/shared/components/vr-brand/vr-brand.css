@@ -1,0 +1,36 @@
+.vr-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.vr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 42px;
+
+  border: 2px solid #1976d2;
+  border-radius: 6px;
+
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #1976d2;
+
+  box-sizing: border-box;
+}
+
+.intelligence {
+  font-size: 21px;
+  font-weight: 500;
+  color: #222;
+  letter-spacing: -0.3px;
+
+  position: relative;
+  top: 2px;
+}

@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>
+    Report Details
+</h2>
+
+<mat-dialog-content>
+
+    <table class="details-table">
+
+        <tr>
+            <td class="label">Report Name</td>
+            <td>{{data.reportName}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Category</td>
+            <td>{{data.category}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Generated Date</td>
+            <td>{{data.generatedDate}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Status</td>
+            <td>{{data.status}}</td>
+        </tr>
+
+    </table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    <button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close>
+
+        Close
+
+    </button>
+
+</mat-dialog-actions>

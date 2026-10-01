@@ -1,0 +1,17 @@
+.toolbar{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin:25px 0;
+
+}
+
+mat-form-field{
+
+    width:250px;
+
+}

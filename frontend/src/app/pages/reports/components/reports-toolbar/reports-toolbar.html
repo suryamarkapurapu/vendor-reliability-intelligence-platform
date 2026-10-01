@@ -1,0 +1,55 @@
+<form
+    [formGroup]="toolbarForm"
+    class="toolbar">
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Search Report</mat-label>
+
+        <input
+            matInput
+            formControlName="search">
+
+        <mat-icon matSuffix>
+
+            search
+
+        </mat-icon>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Category</mat-label>
+
+        <mat-select formControlName="category">
+
+            <mat-option value="All">All</mat-option>
+
+            <mat-option value="Vendor">Vendor</mat-option>
+
+            <mat-option value="Procurement">Procurement</mat-option>
+
+            <mat-option value="Contract">Contract</mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+        <mat-label>Status</mat-label>
+
+        <mat-select formControlName="status">
+
+            <mat-option value="All">All</mat-option>
+
+            <mat-option value="Generated">Generated</mat-option>
+
+            <mat-option value="Pending">Pending</mat-option>
+
+        </mat-select>
+
+    </mat-form-field>
+
+</form>

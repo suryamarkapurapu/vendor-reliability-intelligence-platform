@@ -1,0 +1,32 @@
+.full-width {
+  width: 100%;
+}
+
+mat-dialog-content {
+  width: 450px;
+  padding: 16px 8px 8px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.date-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+}
+
+.date-row mat-form-field {
+  flex: 1;
+  min-width: 0;
+}
+
+h2 {
+  color: #1976d2;
+  font-weight: 600;
+  margin-bottom: 8px;
+}

@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>
+    Procurement Request Details
+</h2>
+
+<mat-dialog-content>
+
+    <table class="details-table">
+
+        <tr>
+            <td class="label">Request ID</td>
+            <td>{{data.requestId}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Item</td>
+            <td>{{data.item}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Vendor</td>
+            <td>{{data.vendor}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Quantity</td>
+            <td>{{data.quantity}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Budget</td>
+            <td>₹ {{data.budget | number}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Required Date</td>
+            <td>{{data.requiredDate}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Status</td>
+            <td>{{data.status}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">Priority</td>
+            <td>{{data.priority}}</td>
+        </tr>
+
+    </table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    <button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close>
+
+        Close
+
+    </button>
+
+</mat-dialog-actions>

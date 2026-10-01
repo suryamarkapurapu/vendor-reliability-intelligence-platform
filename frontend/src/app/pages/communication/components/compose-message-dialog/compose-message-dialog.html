@@ -1,0 +1,120 @@
+<h2 mat-dialog-title>Compose Message</h2>
+
+<mat-dialog-content>
+  <div class="dialog-form">
+    <form [formGroup]="messageForm">
+
+      <!-- Vendor Selection -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Recipient (Vendor)</mat-label>
+
+        @if (vendors.length === 0) {
+          <mat-select formControlName="vendor">
+            <mat-option disabled value="">No vendors available</mat-option>
+          </mat-select>
+        } @else {
+          <mat-select formControlName="vendor">
+            @for (v of vendors; track v.vendor_id) {
+              <mat-option [value]="v.vendor_id">
+                {{ v.company_name }} ({{ v.vendor_code }})
+              </mat-option>
+            }
+          </mat-select>
+        }
+
+        @if (messageForm.get('vendor')?.hasError('required') && messageForm.get('vendor')?.touched) {
+          <mat-error>Vendor selection is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Subject -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Subject</mat-label>
+
+        <input
+          matInput
+          formControlName="subject"
+          placeholder="Enter message subject">
+
+        @if (messageForm.get('subject')?.hasError('required') && messageForm.get('subject')?.touched) {
+          <mat-error>Subject is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Communication Type -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Communication Type</mat-label>
+
+        <mat-select formControlName="type">
+          <mat-option value="Email">Email</mat-option>
+          <mat-option value="Portal Message">Portal Message</mat-option>
+          <mat-option value="Notice">Notice</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Message Body -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Message</mat-label>
+
+        <textarea
+          matInput
+          rows="4"
+          formControlName="message"
+          placeholder="Type your message here...">
+        </textarea>
+
+        @if (messageForm.get('message')?.hasError('required') && messageForm.get('message')?.touched) {
+          <mat-error>Message body is required</mat-error>
+        }
+      </mat-form-field>
+
+      <!-- Attachment -->
+      <div class="attachment-section">
+
+        <button
+          mat-stroked-button
+          type="button"
+          (click)="fileInput.click()">
+
+          <mat-icon>attach_file</mat-icon>
+          Attach File
+
+        </button>
+
+        <input
+          #fileInput
+          type="file"
+          hidden
+          (change)="onFileSelected($event)">
+
+        @if (selectedFile) {
+          <span class="file-name">
+            {{ selectedFile.name }}
+          </span>
+        }
+
+      </div>
+
+    </form>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+  <button
+    mat-button
+    mat-dialog-close>
+    Cancel
+  </button>
+
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="sendMessage()"
+    [disabled]="messageForm.invalid || vendors.length === 0">
+
+    Send Message
+
+  </button>
+
+</mat-dialog-actions>

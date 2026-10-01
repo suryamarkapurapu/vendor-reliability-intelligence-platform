@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="content">
+
+        <app-purchase-header (poCreated)="onPoCreated()"></app-purchase-header>
+
+        <div class="summary-grid">
+
+            <app-purchase-summary-card
+                title="Total Orders"
+                [value]="totalOrders"
+                icon="shopping_cart">
+            </app-purchase-summary-card>
+
+            <app-purchase-summary-card
+                title="Approved"
+                [value]="approvedOrders"
+                icon="verified">
+            </app-purchase-summary-card>
+
+            <app-purchase-summary-card
+                title="Pending"
+                [value]="pendingOrders"
+                icon="schedule">
+            </app-purchase-summary-card>
+
+            <app-purchase-summary-card
+                title="Completed"
+                [value]="completedOrders"
+                icon="check_circle">
+            </app-purchase-summary-card>
+
+        </div>
+
+        <app-purchase-toolbar></app-purchase-toolbar>
+
+        <app-purchase-table (poDataChanged)="onPoDataChanged()"></app-purchase-table>
+          <app-delivery-tracking></app-delivery-tracking>
+    </div>
+
+</div>

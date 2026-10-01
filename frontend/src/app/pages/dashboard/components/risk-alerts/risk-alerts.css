@@ -1,0 +1,77 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+mat-card {
+  padding: 20px;
+  border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+h2 {
+  color: #d32f2f;
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Scroll area for many risk alerts */
+.risk-table-scroll {
+  width: 100%;
+  max-height: 300px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+/* Table */
+.risk-table {
+  width: 100%;
+  min-width: 400px;
+}
+
+/* Vendor column */
+.risk-table .mat-column-vendor {
+  min-width: 220px;
+}
+
+/* Risk column */
+.risk-table .mat-column-risk {
+  min-width: 120px;
+}
+
+/* Cells */
+.risk-table th,
+.risk-table td {
+  padding: 12px 14px;
+}
+
+/* Allow long vendor names to wrap */
+.risk-table td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Error */
+.error-state {
+  padding: 12px;
+  color: #d32f2f;
+  font-size: 13px;
+  background: #ffebee;
+  border-radius: 4px;
+}
+
+/* Empty state */
+.empty-table-state {
+  padding: 24px 16px;
+  text-align: center;
+  color: #888;
+}
+
+.empty-table-state p {
+  margin: 0;
+  font-size: 14px;
+}

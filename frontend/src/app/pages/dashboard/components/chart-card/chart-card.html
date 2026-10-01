@@ -1,0 +1,21 @@
+<mat-card class="chart-card">
+
+    <h2>{{ title }}</h2>
+
+    @if (hasData) {
+        <div class="chart-container">
+            <canvas
+                baseChart
+                [data]="chartData"
+                [options]="chartOptions"
+                [type]="chartType">
+            </canvas>
+        </div>
+    } @else {
+        <div class="empty-chart-state" style="padding: 48px 16px; text-align: center; color: #888;">
+            <mat-icon style="font-size: 40px; height: 40px; width: 40px; color: #bbb; margin-bottom: 8px;">analytics</mat-icon>
+            <p style="margin: 0; font-size: 14px;">No chart data available</p>
+        </div>
+    }
+
+</mat-card>

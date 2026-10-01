@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+
+<div class="layout">
+
+    <app-sidebar></app-sidebar>
+
+    <main class="content">
+
+        <app-settings-header (save)="onSaveSettings()"></app-settings-header>
+        @if (saveMessage) {
+            <div style="padding: 10px; margin-bottom: 12px; background: #e8f5e9; color: #2e7d32; border-radius: 4px;">
+                {{ saveMessage }}
+            </div>
+        }
+
+        <app-company-settings></app-company-settings>
+
+        <app-security-settings></app-security-settings>
+
+    </main>
+
+</div>

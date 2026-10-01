@@ -1,0 +1,51 @@
+<div class="charts-grid">
+
+  <!-- Performance Breakdown -->
+  <mat-card class="chart-card">
+    <h3>Vendor Performance Breakdown</h3>
+    <p class="chart-description">
+      Average performance across key reliability factors.
+    </p>
+
+    @if (hasBreakdownData) {
+      <div class="chart-container">
+        <canvas
+          baseChart
+          [data]="performanceChartData"
+          [options]="performanceChartOptions"
+          [type]="performanceChartType">
+        </canvas>
+      </div>
+    } @else {
+      <div class="empty-chart-state" style="padding: 48px 16px; text-align: center; color: #888;">
+        <mat-icon style="font-size: 40px; height: 40px; width: 40px; color: #bbb; margin-bottom: 8px;">analytics</mat-icon>
+        <p style="margin: 0; font-size: 14px;">No performance data available</p>
+      </div>
+    }
+  </mat-card>
+
+  <!-- Performance Trend -->
+  <mat-card class="chart-card">
+    <h3>Reliability Performance Trend</h3>
+    <p class="chart-description">
+      Average vendor reliability score over the last six months.
+    </p>
+
+    @if (hasTrendData) {
+      <div class="chart-container">
+        <canvas
+          baseChart
+          [data]="trendChartData"
+          [options]="trendChartOptions"
+          [type]="trendChartType">
+        </canvas>
+      </div>
+    } @else {
+      <div class="empty-chart-state" style="padding: 48px 16px; text-align: center; color: #888;">
+        <mat-icon style="font-size: 40px; height: 40px; width: 40px; color: #bbb; margin-bottom: 8px;">trending_up</mat-icon>
+        <p style="margin: 0; font-size: 14px;">No historical trend data available</p>
+      </div>
+    }
+  </mat-card>
+
+</div>

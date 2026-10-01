@@ -1,0 +1,17 @@
+.toolbar{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:20px;
+
+    margin-bottom:30px;
+
+}
+
+mat-form-field{
+
+    width:100%;
+
+}

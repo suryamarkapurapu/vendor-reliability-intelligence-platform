@@ -1,0 +1,44 @@
+mat-form-field{
+
+    width:85%;
+
+    margin-bottom:20px;
+
+    padding:15px;
+
+}
+
+.upload-section{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:15px 0;
+
+}
+
+.upload-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    cursor:pointer;
+
+    color:#1976d2;
+
+    font-weight:500;
+
+}
+
+mat-dialog-content{
+
+    min-width:650px;
+
+}
+

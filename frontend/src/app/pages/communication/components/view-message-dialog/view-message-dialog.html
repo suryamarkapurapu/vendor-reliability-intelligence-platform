@@ -1,0 +1,81 @@
+<h2 mat-dialog-title>
+
+    Communication Details
+
+</h2>
+
+<mat-dialog-content>
+
+    <table class="details-table">
+
+        <tr>
+            <td><strong>Vendor</strong></td>
+            <td>{{data.vendor}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Subject</strong></td>
+            <td>{{data.subject}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Communication Type</strong></td>
+            <td>{{data.type}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Date</strong></td>
+            <td>{{data.date}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Status</strong></td>
+            <td>{{data.status}}</td>
+        </tr>
+
+        <tr>
+            <td><strong>Attachment</strong></td>
+            <td>
+
+                <mat-icon>attach_file</mat-icon>
+
+                {{data.attachment}}
+
+            </td>
+        </tr>
+
+        <tr>
+            <td><strong>Message</strong></td>
+            <td>
+
+                Dear Vendor,
+
+                <br><br>
+
+                Please review the attached document regarding the purchase order.
+                Kindly acknowledge receipt and provide your confirmation.
+
+                <br><br>
+
+                Regards,<br>
+                Procurement Team
+
+            </td>
+        </tr>
+
+    </table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+    <button
+        mat-raised-button
+        color="primary"
+        mat-dialog-close>
+
+        Close
+
+    </button>
+
+</mat-dialog-actions>

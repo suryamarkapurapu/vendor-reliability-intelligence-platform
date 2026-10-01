@@ -1,0 +1,129 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content">
+
+    <!-- Full Width Header -->
+    <app-dashboard-header></app-dashboard-header>
+
+
+    <!-- Dashboard body -->
+    <div class="dashboard-body">
+
+      <!-- LEFT SECTION -->
+      <div class="main-section">
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+
+          <app-kpi-card
+            title="Total Vendors"
+            [value]="totalVendors"
+            icon="groups">
+          </app-kpi-card>
+
+          <app-kpi-card
+            title="Purchase Orders"
+            [value]="totalPurchaseOrders"
+            icon="receipt_long">
+          </app-kpi-card>
+
+         <app-kpi-card
+  title="Procurement Spend"
+  [value]="totalProcurementSpend"
+  [currency]="true"
+  icon="payments">
+</app-kpi-card>
+
+          <app-kpi-card
+            title="Open Issues"
+            [value]="totalOpenIssues"
+            icon="warning_amber">
+          </app-kpi-card>
+
+        </div>
+
+
+        <!-- Charts -->
+ <div class="chart-grid">
+
+    <!-- Vendor Performance Bar Chart -->
+
+    <app-chart-card
+        title="Vendor Performance"
+        chartType="bar"
+        [chartData]="vendorPerformanceData">
+    </app-chart-card>
+
+
+    <!-- Procurement Analytics Line Chart -->
+
+    <app-chart-card
+        title="Procurement Analytics"
+        chartType="line"
+        [chartData]="procurementAnalyticsData">
+    </app-chart-card>
+
+</div>
+
+      </div>
+
+
+      <!-- RIGHT SECTION -->
+      <div class="dashboard-panels">
+
+        <!-- Recent Purchase Orders -->
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+
+            <mat-panel-title>
+              Recent Purchase Orders
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <app-recent-orders>
+          </app-recent-orders>
+
+        </mat-expansion-panel>
+
+
+        <!-- Risk Alerts -->
+        <mat-expansion-panel>
+
+          <mat-expansion-panel-header>
+
+            <mat-panel-title>
+              Risk Alerts
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+
+          <app-risk-alerts>
+          </app-risk-alerts>
+
+        </mat-expansion-panel>
+
+
+        <!-- Recent Activity -->
+      <mat-expansion-panel [expanded]="true">
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Recent Activity
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-recent-activity></app-recent-activity>
+</mat-expansion-panel>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

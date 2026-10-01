@@ -1,0 +1,370 @@
+<div class="sidebar">
+
+  <div class="logo-container">
+    <img
+      src="images/shield_mark_icon_only.png"
+      alt="VRIP Logo"
+      class="logo">
+  </div>
+
+  <mat-nav-list>
+
+    <!-- ===================================================== -->
+    <!-- Dashboard: All authenticated users -->
+    <!-- ===================================================== -->
+
+    <a
+      mat-list-item
+      routerLink="/dashboard"
+      routerLinkActive="active">
+
+      <mat-icon>dashboard</mat-icon>
+      <span>Dashboard</span>
+
+    </a>
+
+
+    <!-- ===================================================== -->
+    <!-- Vendor Management -->
+    <!-- Administrator
+         Procurement Manager
+         Supply Chain Manager
+         Vendor (own profile)
+         Finance Officer (view)
+         Auditor (view)
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'VENDOR',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/vendor-management"
+        routerLinkActive="active">
+
+        <mat-icon>business</mat-icon>
+        <span>Vendor Management</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Vendor Performance -->
+    <!-- Administrator
+         Procurement Manager
+         Supply Chain Manager
+         Vendor (own performance)
+         Finance Officer (view)
+         Auditor (view)
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'VENDOR',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/vendor-performance"
+        routerLinkActive="active">
+
+        <mat-icon>business</mat-icon>
+        <span>Vendor Performance</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Vendor Issues -->
+    <!-- All operational roles
+         Vendor can see/manage their own issues
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'VENDOR',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/vendor-issues"
+        routerLinkActive="active">
+
+        <mat-icon matListItemIcon>
+          report_problem
+        </mat-icon>
+
+        <span matListItemTitle>
+          Vendor Issues
+        </span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Procurement Management -->
+    <!-- Administrator
+         Procurement Manager
+         Supply Chain Manager
+         Finance Officer (view)
+         Auditor (view)
+    -->
+    <!-- Vendor: NO ACCESS
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/procurement-management"
+        routerLinkActive="active">
+
+        <mat-icon>shopping_cart</mat-icon>
+        <span>Procurement Management</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Purchase Orders -->
+    <!-- Administrator
+         Procurement Manager
+         Supply Chain Manager
+         Vendor (own POs)
+         Finance Officer (view)
+         Auditor (view)
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'VENDOR',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/purchase-orders"
+        routerLinkActive="active">
+
+        <mat-icon>shopping_bag</mat-icon>
+        <span>Purchase Orders</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Contract Management -->
+    <!-- Administrator
+         Procurement Manager
+         Supply Chain Manager
+         Vendor (own contract)
+         Finance Officer (view)
+         Auditor (view)
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'VENDOR',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/contract-management"
+        routerLinkActive="active">
+
+        <mat-icon>description</mat-icon>
+        <span>Contract Management</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Communication -->
+    <!-- All roles can communicate according to their
+         permitted business context
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'VENDOR',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/communication"
+        routerLinkActive="active">
+
+        <mat-icon>forum</mat-icon>
+        <span>Communication</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Analytics -->
+    <!-- Administrator
+         Procurement Manager
+         Supply Chain Manager
+         Finance Officer
+         Auditor
+    -->
+    <!-- Vendor: NO ACCESS
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/analytics"
+        routerLinkActive="active">
+
+        <mat-icon>analytics</mat-icon>
+        <span>Analytics</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Reports -->
+    <!-- Administrator
+         Procurement Manager
+         Supply Chain Manager
+         Vendor (own reports)
+         Finance Officer
+         Auditor
+    -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR',
+      'PROCUREMENT_MANAGER',
+      'SUPPLY_CHAIN_MANAGER',
+      'VENDOR',
+      'FINANCE_OFFICER',
+      'AUDITOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/reports"
+        routerLinkActive="active">
+
+        <mat-icon>assessment</mat-icon>
+        <span>Reports</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Settings -->
+    <!-- Administrator ONLY -->
+    <!-- ===================================================== -->
+
+    @if (hasRole([
+      'ADMIN',
+      'ADMINISTRATOR'
+    ])) {
+
+      <a
+        mat-list-item
+        routerLink="/settings"
+        routerLinkActive="active">
+
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+
+      </a>
+
+    }
+
+
+    <!-- ===================================================== -->
+    <!-- Logout -->
+    <!-- All authenticated users -->
+    <!-- ===================================================== -->
+
+    <a
+      mat-list-item
+      (click)="onLogout($event)"
+      class="logout-item">
+
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+
+    </a>
+
+  </mat-nav-list>
+
+</div>

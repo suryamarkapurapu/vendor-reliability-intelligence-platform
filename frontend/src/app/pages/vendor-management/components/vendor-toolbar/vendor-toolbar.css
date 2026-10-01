@@ -1,0 +1,15 @@
+.toolbar{
+    display:flex;
+    gap:20px;
+    margin-bottom:25px;
+    flex-wrap:wrap;
+}
+
+.search-field{
+    flex:1;
+    min-width:300px;
+}
+
+mat-form-field{
+    min-width:180px;
+}

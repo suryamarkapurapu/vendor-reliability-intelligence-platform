@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="content">
+
+        <app-analytics-header></app-analytics-header>
+
+        <div class="summary-grid">
+
+            <app-analytics-summary-card
+                title="Total Vendors"
+                [value]="totalVendors"
+                icon="groups">
+            </app-analytics-summary-card>
+
+            <app-analytics-summary-card
+                title="Active Contracts"
+                [value]="activeContracts"
+                icon="description">
+            </app-analytics-summary-card>
+
+            <app-analytics-summary-card
+                title="Procurement Cost"
+                [value]="procurementCost"
+                icon="payments">
+            </app-analytics-summary-card>
+
+            <app-analytics-summary-card
+                title="Vendor Score"
+                [value]="vendorScore"
+                icon="star">
+            </app-analytics-summary-card>
+
+        </div>
+
+        <div class="charts-grid">
+
+            <app-procurement-chart></app-procurement-chart>
+
+            <app-vendor-chart></app-vendor-chart>
+
+            <app-risk-chart></app-risk-chart>
+
+            <app-contract-chart></app-contract-chart>
+
+        </div>
+
+    </div>
+
+</div>

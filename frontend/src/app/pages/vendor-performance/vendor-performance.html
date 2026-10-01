@@ -1,0 +1,174 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content">
+
+    <div class="summary-grid">
+
+      <app-performance-summary
+        title="Avg Reliability Score"
+        [value]="avgReliabilityScore"
+        icon="verified">
+      </app-performance-summary>
+
+      <app-performance-summary
+        title="On-Time Delivery"
+        [value]="onTimeDelivery"
+        icon="local_shipping">
+      </app-performance-summary>
+
+      <app-performance-summary
+        title="Avg Quality Rating"
+        [value]="avgQualityRating"
+        icon="star">
+      </app-performance-summary>
+
+      <app-performance-summary
+        title="High Risk Vendors"
+        [value]="highRiskVendors"
+        icon="warning_amber">
+      </app-performance-summary>
+
+    </div>
+
+    <!-- Rate Vendor -->
+    <mat-card style="margin: 25px 0; padding: 20px;">
+
+      <h2>Rate Vendor</h2>
+
+      <p>
+        Enter performance ratings for a vendor.
+      </p>
+
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 16px;
+          margin-top: 20px;
+        "
+      >
+
+        <mat-form-field appearance="outline">
+          <mat-label>Vendor</mat-label>
+
+          <mat-select [(ngModel)]="selectedVendorId">
+
+            <mat-option value="">
+              Select Vendor
+            </mat-option>
+
+            @for (vendor of vendors; track vendor.vendor_id) {
+              <mat-option [value]="vendor.vendor_id">
+                {{ vendor.company_name }}
+                ({{ vendor.vendor_code }})
+              </mat-option>
+            }
+
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Quality Rating</mat-label>
+
+          <mat-select [(ngModel)]="qualityRating">
+
+            @for (rating of [1, 2, 3, 4, 5]; track rating) {
+              <mat-option [value]="rating">
+                {{ rating }} / 5
+              </mat-option>
+            }
+
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Delivery Rating</mat-label>
+
+          <mat-select [(ngModel)]="deliveryRating">
+
+            @for (rating of [1, 2, 3, 4, 5]; track rating) {
+              <mat-option [value]="rating">
+                {{ rating }} / 5
+              </mat-option>
+            }
+
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Communication Rating</mat-label>
+
+          <mat-select [(ngModel)]="communicationRating">
+
+            @for (rating of [1, 2, 3, 4, 5]; track rating) {
+              <mat-option [value]="rating">
+                {{ rating }} / 5
+              </mat-option>
+            }
+
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field
+          appearance="outline"
+          style="grid-column: span 2;"
+        >
+          <mat-label>Comments</mat-label>
+
+          <textarea
+            matInput
+            rows="3"
+            [(ngModel)]="comments"
+            placeholder="Enter comments about vendor performance">
+          </textarea>
+
+        </mat-form-field>
+
+      </div>
+
+      @if (ratingMessage) {
+        <div
+          style="
+            margin: 10px 0;
+            padding: 10px;
+            color: green;
+          "
+        >
+          {{ ratingMessage }}
+        </div>
+      }
+
+      @if (ratingError) {
+        <div
+          style="
+            margin: 10px 0;
+            padding: 10px;
+            color: red;
+          "
+        >
+          {{ ratingError }}
+        </div>
+      }
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="submitRating()"
+      >
+        Submit Rating
+      </button>
+
+    </mat-card>
+
+    <app-performance-charts></app-performance-charts>
+
+    <app-vendor-ranking></app-vendor-ranking>
+
+  </div>
+
+</div>

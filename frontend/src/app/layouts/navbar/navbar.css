@@ -1,0 +1,244 @@
+
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+
+/* Notification Bell */
+
+.notification-button {
+    position: relative;
+}
+
+
+/* Red unread counter */
+
+.notification-badge {
+    position: absolute;
+
+    top: 2px;
+    right: 2px;
+
+    min-width: 17px;
+    height: 17px;
+
+    padding: 0 4px;
+
+    border-radius: 10px;
+
+    background: #d32f2f;
+    color: white;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Dropdown */
+
+.notification-container {
+    width: 360px;
+    max-height: 420px;
+
+    overflow-y: auto;
+}
+
+
+/* Header */
+
+.notification-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 15px;
+
+    border-bottom: 1px solid #eee;
+}
+
+
+.notification-header h3 {
+    margin: 0;
+
+    color: #1976d2;
+
+    font-size: 18px;
+}
+
+
+/* Notification */
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 14px 15px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid #eee;
+
+    position: relative;
+}
+
+
+.notification-item:hover {
+    background: #f5f5f5;
+}
+
+
+/* Unread notification */
+
+.notification-item.unread {
+    background: #f3f8ff;
+}
+
+
+.notification-icon {
+    color: #1976d2;
+
+    margin-top: 3px;
+}
+
+
+.notification-content {
+    flex: 1;
+}
+
+
+.notification-content strong {
+    display: block;
+
+    font-size: 14px;
+
+    margin-bottom: 4px;
+}
+
+
+.notification-content p {
+    margin: 0 0 5px;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+
+.notification-content small {
+    color: #888;
+
+    font-size: 11px;
+}
+
+
+/* Blue unread indicator */
+
+.unread-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #1976d2;
+
+    border-radius: 50%;
+
+    margin-top: 7px;
+}
+
+/* User profile */
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    height: 56px;
+
+    margin-left: 8px;
+
+    color: #222;
+}
+
+
+.user-profile > mat-icon:first-child {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+    
+}
+
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    line-height: 1.2;
+}
+
+
+.username {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+.role {
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+
+.dropdown-icon {
+    font-size: 20px !important;
+
+    width: 20px !important;
+    height: 20px !important;
+}
+
+
+/* User menu */
+
+.user-menu-header {
+    display: flex;
+    flex-direction: column;
+
+    padding: 12px 18px;
+
+    min-width: 180px;
+}
+
+
+.user-menu-header strong {
+    font-size: 14px;
+}
+
+
+.user-menu-header span {
+    font-size: 12px;
+
+    color: black;
+
+    margin-top: 4px;
+}
+
+
+/* Empty notification state */
+
+.no-notifications {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+}

@@ -1,0 +1,81 @@
+<mat-card class="ranking-card">
+
+  <div class="ranking-header">
+    <div>
+      <h3>Vendor Reliability Ranking</h3>
+      <p>Vendors ranked based on performance and reliability.</p>
+    </div>
+  </div>
+
+  @if (dataSource.length === 0) {
+    <div class="empty-table-state" style="padding: 40px; text-align: center; color: #888; background: #fafafa; border-radius: 8px; border: 1px dashed #ccc; margin: 16px;">
+      <mat-icon style="font-size: 40px; height: 40px; width: 40px; color: #aaa; margin-bottom: 8px;">leaderboard</mat-icon>
+      <p style="font-size: 15px; margin: 0;">No vendor rankings available</p>
+    </div>
+  } @else {
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" class="ranking-table">
+
+        <!-- Rank -->
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef>Rank</th>
+          <td mat-cell *matCellDef="let vendor">#{{ vendor.rank }}</td>
+        </ng-container>
+
+        <!-- Vendor -->
+        <ng-container matColumnDef="vendor">
+          <th mat-header-cell *matHeaderCellDef>Vendor</th>
+          <td mat-cell *matCellDef="let vendor"><strong>{{ vendor.vendor }}</strong></td>
+        </ng-container>
+
+        <!-- Reliability -->
+        <ng-container matColumnDef="reliabilityScore">
+          <th mat-header-cell *matHeaderCellDef>Reliability Score</th>
+          <td mat-cell *matCellDef="let vendor"><span class="score">{{ vendor.reliabilityScore }}/100</span></td>
+        </ng-container>
+
+        <!-- Delivery -->
+        <ng-container matColumnDef="deliveryPerformance">
+          <th mat-header-cell *matHeaderCellDef>On-Time Delivery</th>
+          <td mat-cell *matCellDef="let vendor">{{ vendor.deliveryPerformance }}%</td>
+        </ng-container>
+
+        <!-- Quality -->
+        <ng-container matColumnDef="qualityRating">
+          <th mat-header-cell *matHeaderCellDef>Quality Rating</th>
+          <td mat-cell *matCellDef="let vendor">{{ vendor.qualityRating }}/5</td>
+        </ng-container>
+
+        <!-- Risk -->
+        <ng-container matColumnDef="riskLevel">
+          <th mat-header-cell *matHeaderCellDef>Risk Level</th>
+          <td mat-cell *matCellDef="let vendor">
+            <mat-chip
+              [class.low-risk]="vendor.riskLevel === 'Low'"
+              [class.medium-risk]="vendor.riskLevel === 'Medium'"
+              [class.high-risk]="vendor.riskLevel === 'High'">
+              {{ vendor.riskLevel }}
+            </mat-chip>
+          </td>
+        </ng-container>
+
+        <!-- Actions -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let vendor">
+            <button
+              mat-icon-button
+              matTooltip="View Reliability Details"
+              (click)="viewVendor(vendor)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  }
+
+</mat-card>

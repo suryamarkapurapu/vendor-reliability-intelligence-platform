@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+mat-card {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+
+/* Horizontal sliding area */
+.table-scroll {
+  width: 100%;
+  max-height: 300px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+/* Keep the table at its natural width */
+.orders-table {
+  min-width: 650px;
+  width: max-content;
+  table-layout: auto;
+}
+
+/* Give each column enough space */
+.orders-table .mat-column-poId {
+  min-width: 130px;
+}
+
+.orders-table .mat-column-vendor {
+  min-width: 190px;
+}
+
+.orders-table .mat-column-amount {
+  min-width: 130px;
+}
+
+.orders-table .mat-column-status {
+  min-width: 120px;
+}
+
+/* Cell spacing */
+.orders-table th,
+.orders-table td {
+  padding: 12px 14px;
+  white-space: nowrap;
+}
+
+/* Empty state */
+.empty-table-state {
+  padding: 24px 16px;
+  text-align: center;
+  color: #888;
+}
+
+.empty-table-state p {
+  margin: 0;
+  font-size: 14px;
+}

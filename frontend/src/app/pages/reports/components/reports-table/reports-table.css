@@ -1,0 +1,17 @@
+table{
+
+    width:100%;
+
+}
+
+th{
+
+    font-weight:600;
+
+}
+
+mat-paginator{
+
+    margin-top:15px;
+
+}

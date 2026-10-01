@@ -1,0 +1,97 @@
+<div class="table-wrapper">
+  @if (dataSource.length === 0) {
+    <div class="empty-table-state" style="padding: 40px; text-align: center; color: #888; background: #fff; border-radius: 8px; border: 1px dashed #ccc; margin: 16px 0;">
+      <mat-icon style="font-size: 48px; height: 48px; width: 48px; color: #aaa; margin-bottom: 8px;">shopping_cart</mat-icon>
+      <p style="font-size: 16px; margin: 0;">No purchase orders found</p>
+    </div>
+  } @else {
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z4 full-width">
+
+      <ng-container matColumnDef="poNumber">
+        <th mat-header-cell *matHeaderCellDef>PO Number</th>
+        <td mat-cell *matCellDef="let row"><strong>{{row.poNumber}}</strong></td>
+      </ng-container>
+
+      <ng-container matColumnDef="supplier">
+        <th mat-header-cell *matHeaderCellDef>Supplier</th>
+        <td mat-cell *matCellDef="let row">{{row.supplier}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef>Item</th>
+        <td mat-cell *matCellDef="let row">{{row.item}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef>Qty</th>
+        <td mat-cell *matCellDef="let row">{{row.quantity}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="totalAmount">
+        <th mat-header-cell *matHeaderCellDef>Total ($)</th>
+        <td mat-cell *matCellDef="let row">{{row.totalAmount | number:'1.2-2'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="orderDate">
+        <th mat-header-cell *matHeaderCellDef>Order Date</th>
+        <td mat-cell *matCellDef="let row">{{row.orderDate}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="deliveryDate">
+        <th mat-header-cell *matHeaderCellDef>Delivery Date</th>
+        <td mat-cell *matCellDef="let row">{{row.deliveryDate}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let row">
+          <mat-chip [style.text-transform]="'uppercase'">
+            {{row.status}}
+          </mat-chip>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="view(row)">
+              <mat-icon>visibility</mat-icon>
+              <span>View</span>
+            </button>
+            @if (row.status === 'pending' || row.status === 'PENDING') {
+              <button mat-menu-item (click)="approveOrder(row)">
+                <mat-icon style="color: #2e7d32;">check_circle</mat-icon>
+                <span>Approve Order</span>
+              </button>
+            }
+            @if (row.status === 'approved' || row.status === 'APPROVED') {
+              <button mat-menu-item (click)="deliverOrder(row)">
+                <mat-icon style="color: #1976d2;">local_shipping</mat-icon>
+                <span>Mark Delivered</span>
+              </button>
+            }
+            @if (row.status === 'delivered' || row.status === 'DELIVERED') {
+              <button mat-menu-item (click)="completeOrder(row)">
+                <mat-icon style="color: #388e3c;">done_all</mat-icon>
+                <span>Complete Order</span>
+              </button>
+            }
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons>
+    </mat-paginator>
+  }
+</div>

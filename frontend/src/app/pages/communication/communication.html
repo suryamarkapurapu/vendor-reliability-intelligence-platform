@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+
+    <app-sidebar></app-sidebar>
+
+    <div class="content">
+
+        <app-communication-header (messageSent)="onMessageSent()"></app-communication-header>
+
+        <div class="summary-grid">
+
+            <app-communication-summary-card
+                title="Total Messages"
+                [value]="totalMessages"
+                icon="chat">
+            </app-communication-summary-card>
+
+            <app-communication-summary-card
+                title="Unread Messages"
+                [value]="unreadMessages"
+                icon="mark_email_unread">
+            </app-communication-summary-card>
+
+            <app-communication-summary-card
+                title="Sent Today"
+                [value]="sentToday"
+                icon="send">
+            </app-communication-summary-card>
+
+            <app-communication-summary-card
+                title="Attachments"
+                [value]="attachmentsCount"
+                icon="attach_file">
+            </app-communication-summary-card>
+
+        </div>
+
+        <app-communication-toolbar></app-communication-toolbar>
+
+        <app-communication-table></app-communication-table>
+    </div>
+
+</div>

@@ -1,0 +1,43 @@
+<mat-card>
+
+  <h2>Recent Activity</h2>
+
+  <mat-list>
+
+    @if (activities.length === 0) {
+
+      <mat-list-item>
+
+        <mat-icon>info</mat-icon>
+
+        <span class="activity-text">
+          No recent activity available.
+        </span>
+
+      </mat-list-item>
+
+    } @else {
+
+      @for (activity of activities; track activity.log_id) {
+
+        <mat-list-item>
+
+          <mat-icon>
+            {{ activity.entity_type === 'vendor'
+              ? 'business'
+              : 'description' }}
+          </mat-icon>
+
+          <span class="activity-text">
+            {{ activity.description }}
+          </span>
+
+        </mat-list-item>
+
+      }
+
+    }
+
+  </mat-list>
+
+</mat-card>

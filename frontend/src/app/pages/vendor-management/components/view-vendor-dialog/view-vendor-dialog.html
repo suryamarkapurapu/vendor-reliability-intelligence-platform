@@ -1,0 +1,62 @@
+<h2 mat-dialog-title>Vendor Details</h2>
+
+<mat-dialog-content>
+
+<table class="details-table">
+
+<tr>
+<td><strong>Vendor Name</strong></td>
+<td>{{data.name}}</td>
+</tr>
+
+<tr>
+<td><strong>Category</strong></td>
+<td>{{data.category}}</td>
+</tr>
+
+
+<tr>
+<td><strong>Vendor Type</strong></td>
+<td>{{data.vendorType}}</td>
+</tr>
+
+<tr>
+<td><strong>Contact</strong></td>
+<td>{{data.contact}}</td>
+</tr>
+
+<tr>
+<td><strong>Email</strong></td>
+<td>{{data.email}}</td>
+</tr>
+
+<tr>
+<td><strong>Status</strong></td>
+<td>{{data.status}}</td>
+</tr>
+
+<tr>
+<td><strong>Rating</strong></td>
+<td>⭐ {{data.rating}}</td>
+</tr>
+
+<tr>
+<td><strong>Risk</strong></td>
+<td>{{data.risk}}</td>
+</tr>
+
+</table>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+
+<button
+mat-raised-button
+mat-dialog-close>
+
+Close
+
+</button>
+
+</mat-dialog-actions>

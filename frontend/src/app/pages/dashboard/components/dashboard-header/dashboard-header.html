@@ -1,0 +1,22 @@
+<div class="header-container">
+
+    <div class="left">
+
+        <h1>👋 Welcome back, {{ userName }}!</h1>
+
+        <p>
+            @if (userRole) {
+                <strong>{{ userRole }}</strong> ·
+            }
+            Here's an overview of today's procurement activities.
+        </p>
+
+    </div>
+
+    <div class="right">
+
+        <h3>{{ currentDate | date:'fullDate' }}</h3>
+
+    </div>
+
+</div>

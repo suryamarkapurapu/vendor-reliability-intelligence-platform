@@ -1,0 +1,412 @@
+<mat-card class="delivery-card">
+
+  <div class="header">
+
+    <div>
+      <h2>Delivery Tracking</h2>
+
+      <p>
+        Create and track shipment delivery information.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- Create Delivery Form -->
+
+  <div class="form-grid">
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>Purchase Order</mat-label>
+
+      <mat-select [(ngModel)]="selectedPoId">
+
+        <mat-option value="">
+          Select Purchase Order
+        </mat-option>
+
+        @for (po of purchaseOrders; track po.po_id) {
+
+          <mat-option [value]="po.po_id">
+
+            {{ po.po_number }}
+
+            @if (po.vendor_name) {
+              - {{ po.vendor_name }}
+            }
+
+          </mat-option>
+
+        }
+
+      </mat-select>
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>Tracking Number</mat-label>
+
+      <input
+        matInput
+        [(ngModel)]="trackingNumber"
+        placeholder="TRK-2026-001">
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>Carrier</mat-label>
+
+      <input
+        matInput
+        [(ngModel)]="carrier"
+        placeholder="DHL Express">
+
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>Expected Delivery Date</mat-label>
+
+      <input
+        matInput
+        type="date"
+        [(ngModel)]="expectedDate">
+
+    </mat-form-field>
+
+
+    <mat-form-field
+      appearance="outline"
+      class="remarks-field">
+
+      <mat-label>Remarks</mat-label>
+
+      <textarea
+        matInput
+        rows="3"
+        [(ngModel)]="remarks"
+        placeholder="Shipment remarks">
+      </textarea>
+
+    </mat-form-field>
+
+  </div>
+
+
+  @if (successMessage) {
+
+    <div class="success-message">
+      {{ successMessage }}
+    </div>
+
+  }
+
+
+  @if (errorMessage) {
+
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+
+  }
+
+
+  <div class="actions">
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="createDelivery()">
+
+      Create Delivery
+
+    </button>
+
+  </div>
+
+
+  <!-- Existing Delivery Records -->
+
+  <div class="records-section">
+
+    <h3>Delivery Records</h3>
+
+    @if (deliveries.length === 0) {
+
+      <p class="empty-message">
+        No delivery records found.
+      </p>
+
+    } @else {
+
+      <div class="table-container">
+
+        <table
+          mat-table
+          [dataSource]="deliveries"
+          class="delivery-table">
+
+
+          <!-- PO -->
+
+          <ng-container matColumnDef="po">
+
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+
+              Purchase Order
+
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let delivery">
+
+              {{ delivery.po_number || delivery.po_id }}
+
+            </td>
+
+          </ng-container>
+
+
+          <!-- Vendor -->
+
+          <ng-container matColumnDef="vendor">
+
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+
+              Vendor
+
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let delivery">
+
+              {{ delivery.vendor_name || '—' }}
+
+            </td>
+
+          </ng-container>
+
+
+          <!-- Tracking -->
+
+          <ng-container matColumnDef="tracking">
+
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+
+              Tracking Number
+
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let delivery">
+
+              {{ delivery.tracking_number || '—' }}
+
+            </td>
+
+          </ng-container>
+
+
+          <!-- Carrier -->
+
+          <ng-container matColumnDef="carrier">
+
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+
+              Carrier
+
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let delivery">
+
+              {{ delivery.carrier || '—' }}
+
+            </td>
+
+          </ng-container>
+
+
+          <!-- Expected Date -->
+
+          <ng-container matColumnDef="expected">
+
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+
+              Expected Date
+
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let delivery">
+
+              {{ delivery.expected_date || '—' }}
+
+            </td>
+
+          </ng-container>
+
+
+          <!-- Status -->
+
+          <ng-container matColumnDef="status">
+
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+
+              Status
+
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let delivery">
+
+              <span
+                class="status"
+                [class]="getStatusClass(delivery.delivery_status)">
+
+                {{ delivery.delivery_status }}
+
+              </span>
+
+            </td>
+
+          </ng-container>
+
+
+          <!-- Actions -->
+
+          <ng-container matColumnDef="actions">
+
+            <th
+              mat-header-cell
+              *matHeaderCellDef>
+
+              Actions
+
+            </th>
+
+            <td
+              mat-cell
+              *matCellDef="let delivery">
+
+
+              @if (
+                delivery.delivery_status === 'not_dispatched'
+                || delivery.delivery_status === 'NOT_DISPATCHED'
+              ) {
+
+                <button
+                  mat-raised-button
+                  color="primary"
+                  type="button"
+                  (click)="dispatchDelivery(delivery.delivery_id)">
+
+                  Dispatch
+
+                </button>
+
+              }
+
+
+              @if (
+                delivery.delivery_status === 'in_transit'
+                || delivery.delivery_status === 'IN_TRANSIT'
+              ) {
+
+                <button
+                  mat-raised-button
+                  color="primary"
+                  type="button"
+                  (click)="markDelivered(delivery.delivery_id)">
+
+                  Deliver
+
+                </button>
+
+
+                <button
+                  mat-button
+                  color="warn"
+                  type="button"
+                  (click)="markDelayed(delivery.delivery_id)">
+
+                  Delay
+
+                </button>
+
+              }
+
+
+              @if (
+                delivery.delivery_status === 'delivered'
+                || delivery.delivery_status === 'DELIVERED'
+              ) {
+
+                <span class="completed">
+                  Completed
+                </span>
+
+              }
+
+
+              @if (
+                delivery.delivery_status === 'delayed'
+                || delivery.delivery_status === 'DELAYED'
+              ) {
+
+                <span class="delayed">
+                  Delayed
+                </span>
+
+              }
+
+            </td>
+
+          </ng-container>
+
+
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns">
+          </tr>
+
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns;">
+          </tr>
+
+        </table>
+
+      </div>
+
+    }
+
+  </div>
+
+</mat-card>

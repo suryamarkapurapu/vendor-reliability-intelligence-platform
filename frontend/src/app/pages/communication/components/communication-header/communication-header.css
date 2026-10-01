@@ -1,0 +1,27 @@
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.header h1{
+
+    margin:0;
+
+    color:#1976d2;
+
+}
+
+p{
+
+    color:#666;
+
+    margin-top:5px;
+
+}

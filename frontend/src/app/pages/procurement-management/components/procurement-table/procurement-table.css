@@ -1,0 +1,23 @@
+table{
+
+    width:100%;
+
+}
+
+th{
+
+    font-weight:bold;
+
+}
+
+mat-chip{
+
+    font-weight:600;
+
+}
+
+mat-paginator{
+
+    margin-top:20px;
+
+}

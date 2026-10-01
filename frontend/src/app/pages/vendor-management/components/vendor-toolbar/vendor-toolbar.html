@@ -1,0 +1,38 @@
+<div class="toolbar">
+
+    <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Search Vendor</mat-label>
+        <input
+            matInput
+            placeholder="Enter vendor name"
+            [(ngModel)]="searchText"
+            (keyup)="onSearch()">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select [value]="selectedCategory" (selectionChange)="onCategoryChange($event.value)">
+            <mat-option value="All">All Categories</mat-option>
+            <mat-option value="Raw Material Suppliers">Raw Material Suppliers</mat-option>
+            <mat-option value="Equipment Vendors">Equipment Vendors</mat-option>
+            <mat-option value="IT Vendors">IT Vendors</mat-option>
+            <mat-option value="Service Providers">Service Providers</mat-option>
+            <mat-option value="Logistics Partners">Logistics Partners</mat-option>
+            <mat-option value="Maintenance Vendors">Maintenance Vendors</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [value]="selectedStatus" (selectionChange)="onStatusChange($event.value)">
+            <mat-option value="All">All Statuses</mat-option>
+            <mat-option value="pending">Pending</mat-option>
+            <mat-option value="approved">Approved</mat-option>
+            <mat-option value="suspended">Suspended</mat-option>
+            <mat-option value="rejected">Rejected</mat-option>
+            <mat-option value="blacklisted">Blacklisted</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+</div>

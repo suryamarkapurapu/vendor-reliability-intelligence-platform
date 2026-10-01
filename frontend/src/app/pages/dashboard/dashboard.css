@@ -1,0 +1,152 @@
+.container {
+  display: flex;
+}
+
+
+/* Main dashboard content */
+
+.content {
+  flex: 1;
+  padding: 30px;
+  min-width: 0;
+}
+
+
+/* Everything below header */
+
+.dashboard-body {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 2fr)
+    minmax(320px, 1fr);
+
+  gap: 25px;
+
+  align-items: start;
+
+  margin-top: 20px;
+}
+
+
+/* Left side */
+
+.main-section {
+  min-width: 0;
+}
+
+
+/* KPI cards */
+
+.kpi-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 8px;
+
+  margin-top: 0;
+}
+
+
+/* Charts */
+
+.chart-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-top: 19px;
+}
+
+
+/* Right side panels */
+
+.dashboard-panels {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-top: 0;
+
+  min-width: 0;
+}
+
+
+.dashboard-panels mat-expansion-panel {
+  border-radius: 10px;
+}
+
+
+.dashboard-panels mat-expansion-panel-header {
+  min-height: 58px;
+}
+
+
+.dashboard-panels mat-panel-title {
+  font-size: 18px;
+
+  font-weight: 600;
+
+  color: #0d6efd;
+}
+
+
+/* Remove old spacing inside expansion panels */
+
+.dashboard-panels app-recent-orders,
+.dashboard-panels app-risk-alerts,
+.dashboard-panels app-recent-activity {
+  display: block;
+
+  margin-top: 0;
+}
+
+
+/* Smaller laptop */
+
+@media (max-width: 1200px) {
+
+  .dashboard-body {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-panels {
+    margin-top: 0;
+  }
+
+}
+
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+  .kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .content {
+    padding: 15px;
+  }
+
+  .kpi-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

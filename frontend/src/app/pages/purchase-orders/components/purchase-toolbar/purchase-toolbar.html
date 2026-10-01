@@ -1,0 +1,32 @@
+<div class="toolbar">
+
+<mat-form-field appearance="outline">
+<mat-label>Search Order</mat-label>
+<input
+matInput
+[(ngModel)]="searchText">
+<mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Status</mat-label>
+<mat-select [(ngModel)]="status">
+<mat-option value="">All</mat-option>
+<mat-option value="approved">Approved</mat-option>
+<mat-option value="pending">Pending</mat-option>
+<mat-option value="delivered">Delivered</mat-option>
+<mat-option value="completed">Completed</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Supplier</mat-label>
+<mat-select [(ngModel)]="supplier">
+<mat-option value="">All Suppliers</mat-option>
+@for (v of vendors; track v.vendor_id) {
+  <mat-option [value]="v.company_name">{{ v.company_name }}</mat-option>
+}
+</mat-select>
+</mat-form-field>
+
+</div>

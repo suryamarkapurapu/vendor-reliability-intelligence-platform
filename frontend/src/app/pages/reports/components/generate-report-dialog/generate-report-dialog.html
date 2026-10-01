@@ -1,0 +1,142 @@
+<h2 mat-dialog-title>
+  Generate Report
+</h2>
+
+<mat-dialog-content>
+
+  <form [formGroup]="reportForm">
+
+    <!-- Report Name -->
+
+    <mat-form-field appearance="outline" class="full-width">
+
+      <mat-label>Report Name</mat-label>
+
+      <input
+        matInput
+        placeholder="Enter report name"
+        formControlName="reportName">
+
+    </mat-form-field>
+
+
+    <!-- Report Type -->
+
+    <mat-form-field appearance="outline" class="full-width">
+
+      <mat-label>Report Type</mat-label>
+
+      <mat-select formControlName="reportType">
+
+        <mat-option value="Vendor Performance">
+          Vendor Performance
+        </mat-option>
+
+        <mat-option value="Procurement Summary">
+          Procurement Summary
+        </mat-option>
+
+        <mat-option value="Purchase Order Summary">
+          Purchase Order Summary
+        </mat-option>
+
+        <mat-option value="Contract Status">
+          Contract Status
+        </mat-option>
+
+        <mat-option value="Vendor Risk Analysis">
+          Vendor Risk Analysis
+        </mat-option>
+
+        <mat-option value="Spend Analysis">
+          Spend Analysis
+        </mat-option>
+
+      </mat-select>
+
+    </mat-form-field>
+
+
+    <!-- Date Range -->
+
+    <div class="date-row">
+
+      <mat-form-field appearance="outline">
+
+        <mat-label>From Date</mat-label>
+
+        <input
+          matInput
+          type="date"
+          formControlName="fromDate">
+
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+
+        <mat-label>To Date</mat-label>
+
+        <input
+          matInput
+          type="date"
+          formControlName="toDate">
+
+      </mat-form-field>
+
+    </div>
+
+
+    <!-- Format -->
+
+    <mat-form-field appearance="outline" class="full-width">
+
+      <mat-label>Format</mat-label>
+
+      <mat-select formControlName="format">
+
+        <mat-option value="PDF">
+          PDF
+        </mat-option>
+
+        <mat-option value="Excel">
+          Excel
+        </mat-option>
+
+        <mat-option value="CSV">
+          CSV
+        </mat-option>
+
+      </mat-select>
+
+    </mat-form-field>
+
+  </form>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+
+  <button
+    mat-button
+    (click)="cancel()">
+
+    Cancel
+
+  </button>
+
+
+  <button
+    mat-flat-button
+    color="primary"
+    [disabled]="reportForm.invalid"
+    (click)="generateReport()">
+
+    <mat-icon>description</mat-icon>
+
+    Generate Report
+
+  </button>
+
+</mat-dialog-actions>

@@ -1,0 +1,82 @@
+<h2 mat-dialog-title>New Contract</h2>
+
+<mat-dialog-content>
+<div class="form-container">
+<form [formGroup]="contractForm">
+
+<mat-form-field appearance="outline">
+<mat-label>Contract ID / Number</mat-label>
+<input matInput formControlName="contractId">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Vendor</mat-label>
+@if (vendors.length === 0) {
+  <mat-select formControlName="vendor">
+    <mat-option disabled value="">No vendors available</mat-option>
+  </mat-select>
+} @else {
+  <mat-select formControlName="vendor">
+    @for (v of vendors; track v.vendor_id) {
+      <mat-option [value]="v.vendor_id">
+        {{ v.company_name }} ({{ v.vendor_code }})
+      </mat-option>
+    }
+  </mat-select>
+}
+@if (contractForm.get('vendor')?.hasError('required') && contractForm.get('vendor')?.touched) {
+  <mat-error>Vendor is required</mat-error>
+}
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Contract Type</mat-label>
+<mat-select formControlName="contractType">
+<mat-option value="Standard Agreement">Standard Agreement</mat-option>
+<mat-option value="Master Service Agreement">Master Service Agreement</mat-option>
+<mat-option value="Statement of Work">Statement of Work</mat-option>
+<mat-option value="NDA">NDA</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Start Date</mat-label>
+<input type="date" matInput formControlName="startDate">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>End Date</mat-label>
+<input type="date" matInput formControlName="endDate">
+@if (contractForm.get('endDate')?.hasError('required') && contractForm.get('endDate')?.touched) {
+  <mat-error>End Date is required</mat-error>
+}
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Contract Value ($)</mat-label>
+<input type="number" matInput formControlName="contractValue" min="0">
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Status</mat-label>
+<mat-select formControlName="status">
+<mat-option value="active">Active</mat-option>
+<mat-option value="draft">Draft</mat-option>
+<mat-option value="expiring">Expiring</mat-option>
+<mat-option value="expired">Expired</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+<mat-label>Description / Title</mat-label>
+<textarea rows="2" matInput formControlName="description"></textarea>
+</mat-form-field>
+
+</form>
+</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+<button mat-button (click)="cancel()">Cancel</button>
+<button mat-raised-button color="primary" (click)="save()" [disabled]="vendors.length === 0">Create Contract</button>
+</mat-dialog-actions>
