@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_BASE_URL } from '../config/api.config';
 
 export interface Notification {
   notification_id: string;
@@ -25,7 +26,7 @@ export interface UnreadNotificationCount {
 })
 export class NotificationService {
 
-  private readonly apiUrl = 'http://127.0.0.1:8000/api/v1/notifications';
+  private readonly apiUrl = `${API_BASE_URL}/notifications`;
 
   constructor(private http: HttpClient) {}
 
