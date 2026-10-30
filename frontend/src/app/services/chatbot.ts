@@ -12,7 +12,7 @@ export interface ChatResponse {
 })
 export class Chatbot {
 
-  private readonly apiUrl = 'http://127.0.0.1:8000/api/v1/chat/';
+  private readonly apiUrl = 'https://vendor-reliability-intelligence-platform-gn0z.onrender.com/api/v1/chat/';
 
   constructor(private http: HttpClient) {}
 
