@@ -1,0 +1,141 @@
+
+.chatbot-container {
+  display: flex;
+  flex-direction: column;
+  height: 75vh;
+  min-height: 450px;
+  max-width: 850px;
+  margin: 20px auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* Header */
+.chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: #1e3a5f;
+  color: white;
+}
+
+.chatbot-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.chatbot-header p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #dbeafe;
+}
+
+.status {
+  font-size: 12px;
+  background: #dcfce7;
+  color: #166534;
+  padding: 5px 12px;
+  border-radius: 20px;
+}
+
+/* Messages area */
+.chat-messages {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f8fafc;
+}
+
+.message-row {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.user-row {
+  justify-content: flex-end;
+}
+
+.bot-row {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.user-row .message-bubble {
+  background: #2563eb;
+  color: white;
+  border-bottom-right-radius: 3px;
+}
+
+.bot-row .message-bubble {
+  background: white;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  border-bottom-left-radius: 3px;
+}
+
+.loading {
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Input area */
+.chat-input-area {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  background: white;
+  border-top: 1px solid #e5e7eb;
+}
+
+.chat-input-area input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input-area input:focus {
+  border-color: #2563eb;
+}
+
+.chat-input-area button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.chat-input-area button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .chatbot-container {
+    height: 80vh;
+    margin: 10px;
+  }
+
+  .message-bubble {
+    max-width: 90%;
+  }
+}

@@ -16,6 +16,7 @@ import { ForgotPassword } from './pages/auth/forgot-password/forgot-password';
 import { ResetPassword } from './pages/auth/reset-password/reset-password';
 import { VendorIssues } from './pages/vendor-issues/vendor-issues';
 import { roleGuard } from './guards/role-guard';
+import { Chatbot } from './pages/chatbot/chatbot';
 
 export const routes: Routes = [
   {
@@ -148,6 +149,11 @@ export const routes: Routes = [
     component: Settings,
     canActivate: [authGuard]
   },
+  {
+  path: 'chatbot',
+  component: Chatbot,
+  canActivate: [authGuard]
+},
   {
     path: '**',
     redirectTo: 'login'

@@ -27,6 +27,7 @@ from app.routers.vendor_performance_router import (
 from app.routers.vendor_router import router as vendor_router
 from app.routers.notification_router import router as notification_router
 from app.routers.activity_log_router import router as activity_log_router
+from app.routers.chatbot_router import router as chatbot_router
 
 
 app = FastAPI(
@@ -140,6 +141,7 @@ app.include_router(
     prefix=settings.API_V1_STR,
 )
 
+
 app.include_router(activity_log_router, prefix="/api/v1")
 
 @app.get(
@@ -155,7 +157,11 @@ async def root():
         "redoc": "/redoc",
         "health": "/health",
     }
-
+# Chatbot
+app.include_router(
+    chatbot_router,
+    prefix=settings.API_V1_STR,
+)
 
 @app.get(
     "/health",
